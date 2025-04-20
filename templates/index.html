@@ -1,0 +1,131 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-10">
+        <div class="card shadow-sm bg-dark">
+            <div class="card-body text-center p-4">
+                <div class="mb-4">
+                    <svg class="hero-icon" width="120" height="120" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h1 class="mb-3">AI-Powered Legal Document Verifier</h1>
+                <p class="lead mb-4">
+                    Upload your legal document to analyze for key terms, potential forgery, and scam risks.
+                    Get instant insights on contract terms, hidden clauses, and suspicious provisions.
+                </p>
+            </div>
+        </div>
+
+        <div class="card shadow-sm mt-4 bg-dark">
+            <div class="card-header">
+                <h2 class="h4 mb-0">Upload Your Document</h2>
+            </div>
+            <div class="card-body">
+                <form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data" id="upload-form">
+                    <div class="mb-3">
+                        <label for="document" class="form-label">Select a document to analyze:</label>
+                        <input class="form-control" type="file" id="document" name="document" required>
+                        <div class="form-text">Supported formats: PDF, DOCX, JPG, JPEG, PNG (Max 10MB)</div>
+                    </div>
+                    <div class="mb-3 d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="terms-check" required>
+                                <label class="form-check-label" for="terms-check">
+                                    I understand that this tool provides an analysis, not legal advice
+                                </label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="analyze-btn">
+                            <i class="fas fa-search me-2"></i>Analyze Document
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body text-center p-3">
+                        <i class="fas fa-file-alt fa-2x mb-3 text-primary"></i>
+                        <h3 class="h5">Document Summarization</h3>
+                        <p>Get a simplified breakdown of key terms, obligations, and rights in plain language</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body text-center p-3">
+                        <i class="fas fa-search-dollar fa-2x mb-3 text-warning"></i>
+                        <h3 class="h5">Forgery Detection</h3>
+                        <p>Checks for inconsistencies like mismatched signatures and formatting anomalies</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body text-center p-3">
+                        <i class="fas fa-shield-alt fa-2x mb-3 text-danger"></i>
+                        <h3 class="h5">Scam/Fraud Alert</h3>
+                        <p>Flags suspicious clauses, hidden liabilities, or unfair terms that could cause harm</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card shadow-sm mt-4 bg-dark">
+            <div class="card-header">
+                <h2 class="h4 mb-0">How It Works</h2>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3 text-center mb-3 mb-md-0">
+                        <div class="step-circle">1</div>
+                        <h5 class="mt-2">Upload</h5>
+                        <p class="small">Upload your legal document</p>
+                    </div>
+                    <div class="col-md-3 text-center mb-3 mb-md-0">
+                        <div class="step-circle">2</div>
+                        <h5 class="mt-2">Process</h5>
+                        <p class="small">AI analyzes the document contents</p>
+                    </div>
+                    <div class="col-md-3 text-center mb-3 mb-md-0">
+                        <div class="step-circle">3</div>
+                        <h5 class="mt-2">Analyze</h5>
+                        <p class="small">System identifies risks and key terms</p>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <div class="step-circle">4</div>
+                        <h5 class="mt-2">Report</h5>
+                        <p class="small">Get a detailed assessment</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer text-center">
+                <p class="text-muted mb-0">
+                    <i class="fas fa-info-circle me-1"></i> 
+                    For information purposes only. Always consult with a qualified legal professional for legal advice.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('upload-form');
+        const analyzeBtn = document.getElementById('analyze-btn');
+        
+        form.addEventListener('submit', function() {
+            analyzeBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Analyzing...';
+            analyzeBtn.disabled = true;
+        });
+    });
+</script>
+{% endblock %}

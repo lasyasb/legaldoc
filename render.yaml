@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: legal-document-verifier
+    env: python
+    buildCommand: ./build.sh
+    startCommand: gunicorn main:app
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: legal-document-verifier-db
+          property: connectionString
+      - key: FLASK_SECRET_KEY
+        generateValue: true
+      - key: PYTHONUNBUFFERED
+        value: true
+
+databases:
+  - name: legal-document-verifier-db
+    databaseName: legal_document_verifier
+    user: legal_verifier_user

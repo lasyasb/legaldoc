@@ -1,0 +1,149 @@
+/* Custom styles for Legal Document Verifier */
+
+/* General theme enhancements */
+:root {
+    --highlight-color: #5e72e4;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Logo and icons */
+.logo-icon {
+    color: var(--highlight-color);
+}
+
+.hero-icon {
+    color: var(--highlight-color);
+    opacity: 0.9;
+}
+
+/* Step circles for how it works section */
+.step-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--highlight-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 auto;
+}
+
+/* Card enhancements */
+.card {
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: transform 0.2s;
+}
+
+/* Footer styling */
+.footer {
+    margin-top: auto;
+    background-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Report page styling */
+.progress {
+    height: 0.8rem;
+    border-radius: 0.5rem;
+}
+
+.risk-gauge {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .step-circle {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+}
+
+/* Upload form enhancements */
+#upload-form .form-control:focus {
+    border-color: var(--highlight-color);
+    box-shadow: 0 0 0 0.25rem rgba(94, 114, 228, 0.25);
+}
+
+/* Accordion styling */
+.accordion-button:not(.collapsed) {
+    background-color: rgba(94, 114, 228, 0.1);
+    color: var(--highlight-color);
+}
+
+.accordion-button:focus {
+    border-color: var(--highlight-color);
+    box-shadow: 0 0 0 0.25rem rgba(94, 114, 228, 0.25);
+}
+
+/* Risk level colors */
+.risk-low {
+    color: #2dce89;
+}
+
+.risk-medium {
+    color: #fb6340;
+}
+
+.risk-high {
+    color: #f5365c;
+}
+
+/* Spinner for loading state */
+.spinner-grow {
+    width: 3rem;
+    height: 3rem;
+}
+
+/* List group item adjustments */
+.list-group-item {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Enhanced visibility for alerts and list items */
+.list-group-item-danger {
+    background-color: #b31a1a !important;
+    border-color: #8a1616 !important;
+    color: #ffffff !important;
+}
+
+.list-group-item-warning {
+    background-color: #d48e25 !important;
+    border-color: #a7731e !important;
+    color: #222222 !important;
+}
+
+.list-group-item-info {
+    background-color: #2d88c5 !important;
+    border-color: #226a9a !important;
+    color: #ffffff !important;
+}
+
+/* Stronger text contrasts */
+.text-light {
+    color: #f8f9fa !important;
+}
+
+/* Recommendations section */
+.card-header {
+    background-color: #444 !important;
+    color: #fff !important;
+}
+
+/* Make risk score section more prominent */
+.badge {
+    font-size: 90% !important;
+    padding: 0.35em 0.65em !important;
+}

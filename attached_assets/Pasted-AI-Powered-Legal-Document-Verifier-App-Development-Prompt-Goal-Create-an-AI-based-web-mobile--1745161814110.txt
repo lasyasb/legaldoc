@@ -1,0 +1,74 @@
+AI-Powered Legal Document Verifier – App Development Prompt
+
+Goal:
+Create an AI-based web/mobile app that allows users to upload legal documents (contracts, agreements, etc.), scans them using NLP, and provides:
+
+    Summarization – A simplified breakdown of key terms, obligations, and risks.
+
+    Forgery Detection – Checks for inconsistencies (e.g., mismatched signatures, altered clauses).
+
+    Scam/Fraud Alert – Flags suspicious clauses, hidden liabilities, or unfair terms that could lead to legal/financial harm.
+
+Key Features:
+
+    Document Upload & NLP Analysis:
+
+        Supports PDF, DOCX, and scanned images (OCR for text extraction).
+
+        Uses NLP (like BERT, GPT, or Legal-BERT) to extract clauses, parties, dates, and obligations.
+
+    Summarization:
+
+        Generates a bullet-point summary of critical terms (payment deadlines, penalties, termination clauses).
+
+    Forgery Check:
+
+        Compares fonts, formatting anomalies, and signature irregularities.
+
+        Detects if clauses were edited after signing.
+
+    Scam/Fraud Detection:
+
+        Flags high-risk clauses (e.g., unilateral termination, hidden fees, ambiguous liability terms).
+
+        Alerts if the document resembles known scam templates.
+
+    Compliance Check:
+
+        Verifies if the document follows local laws (e.g., GDPR, contract law).
+
+    User-Friendly Report:
+
+        Provides a risk score (Low/Medium/High) and actionable recommendations.
+
+Tech Stack:
+
+    Backend: Python (FastAPI/Flask), NLP libraries (spaCy, Hugging Face Transformers).
+
+    Forgery Detection: Computer Vision (OpenCV, Tesseract OCR for scanned docs).
+
+    Database: Firebase/PostgreSQL (to store document patterns for fraud comparison).
+
+    Frontend: React.js/Flutter (for web/mobile).
+
+Expected Output:
+
+    A working prototype where users upload a document and receive:
+
+        A summary.
+
+        Forgery alerts (if any).
+
+        Scam risk assessment (e.g., "High risk: Unbalanced penalty clauses favor the other party").
+
+Example Workflow:
+
+    User uploads a rental agreement.
+
+    AI highlights:
+
+        "Clause 12 allows landlord to increase rent without notice → Potential scam risk."
+
+        "Signature on page 3 shows pixelation → Possible forgery."
+
+    User gets a PDF report with warnings and suggestions.
