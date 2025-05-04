@@ -147,3 +147,8 @@ body {
     font-size: 90% !important;
     padding: 0.35em 0.65em !important;
 }
+.alert.alert-secondary {
+    background-color: #343a40 !important; /* dark grey background */
+    border-color: #2c3035 !important;
+    color: #f8f9fa !important;
+}
